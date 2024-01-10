@@ -16,16 +16,18 @@ const Signup = () => {
   const handleInput = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/signup", {
-        username: Username,
-        password: password,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/signup",
+        {
+          username: Username,
+          password: password,
+        }
+      );
       console.log("Signup successful:", response.status);
       if (response.status == 200) {
         navigate("/");
       }
     } catch (error) {
-      // Handle errors
       if (error.response) {
         console.error("Error response status:", error.response.status);
         console.error("Response data:", error.response.data);
@@ -36,8 +38,6 @@ const Signup = () => {
       }
     }
   };
-
-  // ... rest of your component
 
   return (
     <div className="container">
